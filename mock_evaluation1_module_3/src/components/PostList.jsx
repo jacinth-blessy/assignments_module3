@@ -1,5 +1,5 @@
 import {usePosts} from "../context/PostContext";
-import {PostItem} from "./PostItem";
+import {PostItem} from "../components/PostItem";
 
 const PostList = () => {
     const{posts} = usePosts();
