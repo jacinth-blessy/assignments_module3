@@ -1,25 +1,29 @@
-import React, { useState } from "react";
-import StatusComponent from "./StatusComponent";
-import ConditionalStyling from "./ConditionalStyling";
-import TodosList from "./TodosList";
+import { PostsProvider} from "./context/PostContext";
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
+import PostList from "./components/PostList";
+import ThemeToggle from "./components/themetoggle";
+import "./App.css";
 
-function App() {
-  const [showTodos, setShowTodos] = useState(true);
+const AppContent = () => {
 
+  const { theme } = useTheme();
   return (
-    <div>
-      <StatusComponent />
-      <ConditionalStyling />
-
-      <div style={{ marginTop: 20 }}>
-        <button onClick={() => setShowTodos((s) => !s)}>
-          {showTodos ? "Unmount Todos" : "Mount Todos"}
-        </button>
-      </div>
-
-      {showTodos && <TodosList />}
+    <div className= {`app ${theme}`}>
+      <ThemeToggle />
+      <PostList />
     </div>
   );
-}
+};
+
+const App = () => {
+  return (
+    <ThemeProvider>
+      <PostsProvider>
+        <AppContent />
+      </PostsProvider>
+    </ThemeProvider>
+  );
+};
+
 
 export default App;
