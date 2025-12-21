@@ -1,5 +1,5 @@
-import {usePosts} from "../context/PostContext";
-import {PostItem} from "../components/PostItem";
+import {usePosts} from "../context/PostContext.jsx";
+import {PostItem} from "../components/PostItem.jsx";
 
 const PostList = () => {
     const{posts} = usePosts();
