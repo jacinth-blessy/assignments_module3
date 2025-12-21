@@ -1,11 +1,11 @@
-import {usestate} from "react";
+import {useState} from "react";
 import {usePosts} from "../context/PostContext.jsx";
 
 const PostItem = ({post}) => {
     const {updatePost, deletePost} = usePosts();
-    const {isEditing, setIsEditing} = usestate(false);
-    const {title, setTitle} = usestate(post.title);
-    const {body, setBody} = usestate(post.body);
+    const {isEditing, setIsEditing} = useState(false);
+    const {title, setTitle} = useState(post.title);
+    const {body, setBody} = useState(post.body);
 
     const handleSave = () => {
         updatePost(post.id, {title, body});
